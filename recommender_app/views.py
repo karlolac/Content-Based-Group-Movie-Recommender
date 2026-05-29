@@ -1,14 +1,14 @@
 import re
 import requests
 import urllib3
-from collections import Counter  # Potrebno za brojanje žanrova grupe
+from collections import Counter  
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import UserMovie
 from recommendation_system import prepare_data, get_recommendations_from_list
 
-# Priprema podataka iz sustava preporuka
+
 metadata, cosine_sim, indices = prepare_data()
 
 # Isključivanje upozorenja za SSL certifikate pri pozivu TMDB API-ja
