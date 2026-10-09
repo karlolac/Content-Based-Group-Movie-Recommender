@@ -1,8 +1,8 @@
-super user-> korisničko ime: admin 
-             lozinka: admin
-user-> korisničko ime: karlolackovic
-       lozinka: Vscode2026!
-user-> korisničko ime: user
-       lozinka: Novikorisnik1!
-user-> korisničko ime: korisnik
-       lozinka: Gitbash1312!
+super user-> username: admin 
+             password: admin
+user-> username: karlolackovic
+       password: Vscode2026!
+user-> username: user
+       password: Novikorisnik1!
+user-> username: korisnik
+       password: Gitbash1312!
