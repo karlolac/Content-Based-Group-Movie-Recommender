@@ -31,12 +31,12 @@ def prepare_data():
     metadata['soup'] = metadata['tag'].astype(str) + ' ' + metadata['genres'].astype(str)
     metadata['clean_title'] = metadata['title'].apply(clean_title)
     
-    # TF-IDF i Cosine Similarity
+   
     tfidf = TfidfVectorizer(stop_words='english')
     tfidf_matrix = tfidf.fit_transform(metadata['soup'])
     cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
     
-    # Indeksi za brzo pretraživanje
+    
     indices = pd.Series(metadata.index, index=metadata['title']).drop_duplicates()
     
     return metadata, cosine_sim, indices

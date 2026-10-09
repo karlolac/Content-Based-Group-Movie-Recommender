@@ -75,7 +75,7 @@ def home(request):
 
     if request.method == 'POST':
         
-        # Slučaj 1: Dodavanje filma na osobni profil
+       
         if 'add_my_movie' in request.POST:
             selected_movie = request.POST.get('movie_title')
             if selected_movie in all_movie_titles:
@@ -140,7 +140,6 @@ def home(request):
                 if all_genres:
                     total_genres_count = len(all_genres)
                     counts = Counter(all_genres)
-                    # Uzimamo top 3 najdominantnija žanra u grupi
                     top_5 = counts.most_common(5)
                     
                     for genre, count in top_5:
@@ -150,7 +149,7 @@ def home(request):
                             'percentage': percentage,
                             'count': count
                         })
-            # ============================================
+         
 
             # Uklanjanje duplikata iz konačne liste za algoritam preporuke
             combined_movie_list = list(set(combined_movie_list))
