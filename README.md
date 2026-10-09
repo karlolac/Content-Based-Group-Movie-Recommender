@@ -1,28 +1,30 @@
-# Content-Based Movie Recommendation System and Application for User Groups
+# 🎬 CineGroup – Content-Based Movie Recommendation System for Groups
 
-Ovaj projekt predstavlja web aplikaciju razvijenu u sklopu završnog rada, koja kombinira **Content-Based sustav preporuka filmova** s naprednom logikom za **generiranje zajedničkih preporuka za grupe korisnika**. Sustav analizira pojedinačne profile i povijest gledanja odabranih članova grupe te pronalazi optimalne filmske preporuke koje zadovoljavaju zajedničke interese svih odabranih korisnika.
-
-## 🚀 Ključne Funkcionalnosti
-* **Osobni profil:** Svaki korisnik ima svoj profil na koji može dodavati filmove koje je pogledao ili mu se sviđaju.
-* **Brzo upravljanje:** Dodavanje filmova odvija se putem tražilice s automatskim dovršavanjem (Autocomplete), dok se brisanje neželjenih filmova može odraditi jednim klikom izravno s početne stranice.
-* **Grupna preporuka (Killer Feature):** Mogućnost označavanja (checkbox) više različitih korisnika odjednom. Sustav u pozadini agregira njihove podatke i računa preporuku za cijelu ekipu.
-* **Vizualni prikaz (TMDB API):** Aplikacija dinamički povlači stvarne plakate filmova i pripadajuće žanrove u stvarnom vremenu.
-
-## 🛠️ Tehnološki Stog (Tech Stack)
-* **Backend:** Python 3, Django Web Framework
-* **Data Science & Algoritmi:** Pandas, Scikit-learn (TF-IDF Vectorizer, Cosine Similarity)
-* **Frontend:** HTML5, Bootstrap 5 (Responsive UI), Bootstrap Icons
-* **Vanjski API:** The Movie Database (TMDB) API za dohvaćanje plakata
+A full-stack Django web application developed as an undergraduate thesis project. It combines **Content-Based Filtering** with dynamic group profile aggregation to generate optimal movie recommendations for user groups.
 
 ---
 
-## 💻 Kako pokrenuti projekt lokalno?
+## 🚀 Key Features
 
-###  Kloniranje repozitorija
-```bash
-git clone [https://github.com/karlolac/Content-Based-Movie-Recommendation.git](https://github.com/karlolac/Content-Based-Movie-Recommendation.git)
-cd Content-Based-Movie-Recommendation
+* **Personal User Profiles:** Users can curate their personal movie history by adding films they have watched or enjoyed.
+* **Streamlined UI & Fast Search:** Instant movie selection via Autocomplete search, with single-click removal directly from the home dashboard.
+* **Group Recommendations (Core Feature):** Select multiple user profiles simultaneously using checkboxes. The recommendation engine aggregates individual preferences in real time to calculate top movie recommendations for the entire group.
+* **Rich Visuals (TMDB Integration):** Dynamic fetching of real-time movie posters and metadata via The Movie Database (TMDB) API.
 
-pip install -r requirements.txt
+---
 
-python manage.py runserver  (http://127.0.0.1:8000/)
+## 🛠️ Tech Stack & Architecture
+
+* **Backend:** Python 3, Django Web Framework
+* **Data Science & ML:** Pandas, Scikit-learn (`TF-IDF Vectorizer`, `Cosine Similarity`)
+* **Frontend:** HTML5, Bootstrap 5 (Responsive UI), Bootstrap Icons
+* **External APIs:** The Movie Database (TMDB) API
+
+---
+
+## 💻 Local Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/karlolac/Content-Based-Movie-Recommendation.git](https://github.com/karlolac/Content-Based-Movie-Recommendation.git)
+   cd Content-Based-Movie-Recommendation
