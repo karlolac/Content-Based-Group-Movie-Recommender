@@ -15,7 +15,6 @@ def clean_title(title):
     return title.strip()
 
 def prepare_data():
-    U Djangu će se ovo pozvati samo jednom pri pokretanju."""
     data_tags = pd.read_csv('ml-latest-small/tags.csv')
     data_movies = pd.read_csv('ml-latest-small/movies.csv')
     
@@ -65,11 +64,10 @@ def get_recommendations_from_list(movie_list, metadata, cosine_sim, indices):
     final_recommendation_indices = []
     for i in sim_scores:
         title_at_idx = metadata['title'].iloc[i[0]]
-        # Preskoči ako je film već na listi unosa
+        
         if title_at_idx not in found_titles:
             final_recommendation_indices.append(i[0])
         
-        # PROMIJENJENO: Ovdje je granica podignuta s 10 na 15 filmova
         if len(final_recommendation_indices) == 15: 
             break
 
