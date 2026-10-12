@@ -4,8 +4,6 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
-
 def clean_title(title):
     title = str(title).lower()
     title = re.sub(r'\s*\(\d{4}\)', '', title) # Miče godinu (2009)
@@ -26,23 +24,13 @@ def prepare_data():
     metadata['soup'] = metadata['tag'].astype(str) + ' ' + metadata['genres'].astype(str)
     metadata['clean_title'] = metadata['title'].apply(clean_title)
     
-<<<<<<< HEAD
-   
-=======
->>>>>>> c909225bdc826119394a3e6f9d46e0912cd44c37
     tfidf = TfidfVectorizer(stop_words='english')
     tfidf_matrix = tfidf.fit_transform(metadata['soup'])
     cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> c909225bdc826119394a3e6f9d46e0912cd44c37
     indices = pd.Series(metadata.index, index=metadata['title']).drop_duplicates()
     
     return metadata, cosine_sim, indices
-
-
 
 def get_recommendations_from_list(movie_list, metadata, cosine_sim, indices):
     valid_indices = []
