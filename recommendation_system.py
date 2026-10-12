@@ -3,6 +3,8 @@ import numpy as np
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
+from django.conf import settings
 
 def clean_title(title):
     title = str(title).lower()
@@ -13,8 +15,12 @@ def clean_title(title):
     return title.strip()
 
 def prepare_data():
-    data_tags = pd.read_csv('ml-latest-small/tags.csv')
-    data_movies = pd.read_csv('ml-latest-small/movies.csv')
+    # Apsolutne putanje preko Django BASE_DIR
+    tags_path = os.path.join(settings.BASE_DIR, 'ml-latest-small', 'tags.csv')
+    movies_path = os.path.join(settings.BASE_DIR, 'ml-latest-small', 'movies.csv')
+    
+    data_tags = pd.read_csv(tags_path)
+    data_movies = pd.read_csv(movies_path)
     
     metadata = pd.merge(data_tags, data_movies, on="movieId")
     metadata = metadata.drop_duplicates(subset='title').reset_index(drop=True)
@@ -69,7 +75,7 @@ def get_recommendations_from_list(movie_list, metadata, cosine_sim, indices):
 
     return metadata[['title', 'genres']].iloc[final_recommendation_indices]
 
-#test
+# test
 if __name__ == "__main__":
     meta, sim, idxs = prepare_data()
     test_movies = ['Interstellar', 'Inception', 'Matrix, The ']
